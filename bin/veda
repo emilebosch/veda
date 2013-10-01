@@ -1,1 +1,3 @@
-veda.rb
+#!/usr/bin/env ruby
+require 'veda'
+VedaCLI.start(ARGV)
