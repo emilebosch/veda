@@ -1,4 +1,3 @@
-require 'time'
 class Git
 	class << self
 		def authors(file=nil)
@@ -9,8 +8,7 @@ class Git
 		end
 
 		def log(file=nil)
-			#OHAI! I'm unsafe! Please fix me or feel the wrath.
-			#UNSAFE REASON:
+			#OHAI! I'm unsafe! Please fix me or feel the wrath. People can execute ;rm -rf as filename.
 			log = `git log #{'--follow'} --pretty='format:%h;%aN;%aE;%s;%cD' #{file}`
 			log
 				.split(/\n/)
