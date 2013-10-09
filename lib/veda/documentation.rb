@@ -12,8 +12,8 @@ module Veda
       path = "#{@directory}/#{file}.md"
       contents = File.read path
 
-      authors = Git.authors path
-      log = Git.log path
+      authors = Scm.authors path
+      log = Scm.log path
 
       data = {}
       match = contents.match /---(.*?)---(.*)/m

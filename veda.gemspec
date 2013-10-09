@@ -16,4 +16,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'thor'
   s.add_dependency 'slim'
   s.add_dependency 'hashie'
+  s.add_dependency 'git'
 end

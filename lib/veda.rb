@@ -1,4 +1,4 @@
 require 'veda/server'
 require 'veda/cli'
 require 'veda/documentation'
-require 'veda/git'
+require 'veda/scm'
