@@ -10,4 +10,10 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/emilebosch/veda'
   s.license     = 'MIT'
   s.executables << 'veda'
+
+  s.add_dependency 'sinatra'
+  s.add_dependency 'rdiscount'
+  s.add_dependency 'thor'
+  s.add_dependency 'slim'
+  s.add_dependency 'hashie'
 end
