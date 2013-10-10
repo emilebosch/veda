@@ -14,6 +14,8 @@ describe "page" do
   end
 
   it "should extract metadata from a collection of files" do
-    puts @page.collection
+    @page.collection
   end
+
+  it "should use a slug as path if present"
 end
