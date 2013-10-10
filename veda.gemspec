@@ -17,4 +17,9 @@ Gem::Specification.new do |s|
   s.add_dependency 'slim'
   s.add_dependency 'hashie'
   s.add_dependency 'git'
+
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'guard'
+  s.add_development_dependency 'guard-shell'
 end

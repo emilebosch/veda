@@ -1,1 +1,4 @@
-gem 'simplecov', :require => false, :group => :test
+# A sample Gemfile
+source "https://rubygems.org"
+
+gemspec
