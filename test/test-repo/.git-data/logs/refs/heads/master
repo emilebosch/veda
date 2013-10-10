@@ -1,1 +1,3 @@
 0000000000000000000000000000000000000000 a8c4ae7edb9bbdfc5d370bf2112e16bdc0256c8b Emile bosch <emilebosch@me.com> 1381397603 +0200	commit (initial): initial commit
+a8c4ae7edb9bbdfc5d370bf2112e16bdc0256c8b eb918a7e9070a94c07a4dbdee0830d3894029e1d Emile bosch <emilebosch@me.com> 1381410411 +0200	commit: added empty file
+eb918a7e9070a94c07a4dbdee0830d3894029e1d dd67e3af1caa436bb9fcec8d4e0676aa40af8619 Emile bosch <emilebosch@me.com> 1381410711 +0200	commit: added git ignore

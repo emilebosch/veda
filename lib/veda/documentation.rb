@@ -10,10 +10,8 @@ module Veda
 
     def fetch(file)
       path = "#{@directory}/#{file}.md"
+
       contents = File.read path
-
-      scm_file = ScmFile.new @directory, "#{file}.md"
-
       data = {}
       match = contents.match /---(.*?)---(.*)/m
       if match
@@ -22,6 +20,7 @@ module Veda
       end
       pages = contents.split '<!-- break -->'
 
+      scm_file = ScmFile.new @directory, "#{file}.md"
       Hashie::Mash.new(data.merge!(pages: pages, scm_file: scm_file, contents: contents, id: File.basename(file, '.md')))
     end
 

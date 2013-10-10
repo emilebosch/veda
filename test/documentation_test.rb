@@ -1,7 +1,6 @@
 require './test/test_helper'
 
 describe "Veda::Documentation" do
-
   before do
     @page = Veda::Documentation.new("./test/test-repo")
   end
@@ -10,8 +9,8 @@ describe "Veda::Documentation" do
     meta = @page.fetch "file1"
   end
 
-  it "should not crash when no markdown" do
-    meta = @page.fetch "file1"
+  it "should not crash when no yaml" do
+    meta = @page.fetch "empty"
   end
 
   it "should extract metadata from a collection of files" do
