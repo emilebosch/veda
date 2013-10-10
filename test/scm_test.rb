@@ -13,7 +13,10 @@ describe "ScmFile" do
     @file.log
   end
 
-  it "should show the status of a indexed file"
+  it "should show the status of a indexed file" do
+    @file.status
+  end
+
   it "should show the branches where this file is modified from this starting commit"
 end
 
