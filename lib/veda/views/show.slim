@@ -74,16 +74,16 @@ css:
 
   h1=@page.title
   ul.authors
-    - for name, y in @page.authors
+    - for name, y in @page.scm_file.authors
       li: img width=40 height=40 src=gravatar(y[0].email) title="#{name} (#{y[0].email})"
 
-  span Created by #{@page.log.last.author} on #{date(@page.log.last.date)}, latest edit #{@page.log.first.date.strftime('%b %e, %Y')} by #{@page.log.first.author}.
+  span Created by #{@page.scm_file.log.last.author} on #{date(@page.scm_file.log.last.date)}, latest edit #{@page.scm_file.log.first.date.strftime('%b %e, %Y')} by #{@page.scm_file.log.first.author}.
 
-  .last-commit #{@page.log.first.comment} - #{date(@page.log.first.date)}
+  .last-commit #{@page.scm_file.log.first.comment} - #{date(@page.scm_file.log.first.date)}
 
   ==markdown(@page.contents)
   ul.commits
-    - for log in @page.log
+    - for log in @page.scm_file.log
       li
         .email: img src=gravatar(log.email)
         .rev=log.rev

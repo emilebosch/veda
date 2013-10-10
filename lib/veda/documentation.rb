@@ -12,8 +12,7 @@ module Veda
       path = "#{@directory}/#{file}.md"
       contents = File.read path
 
-      authors = Scm.authors path
-      log = Scm.log path
+      scm_file = ScmFile.new @directory, "#{file}.md"
 
       data = {}
       match = contents.match /---(.*?)---(.*)/m
@@ -21,9 +20,9 @@ module Veda
         data = YAML::load(match[1])
         contents = match[2]
       end
-
       pages = contents.split '<!-- break -->'
-      Hashie::Mash.new(data.merge!(pages: pages, authors: authors, log:log, contents: contents, id: File.basename(file, '.md')))
+
+      Hashie::Mash.new(data.merge!(pages: pages, scm_file: scm_file, contents: contents, id: File.basename(file, '.md')))
     end
 
     def collection

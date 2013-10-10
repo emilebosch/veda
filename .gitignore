@@ -1,4 +1,4 @@
 *.gem
 .DS_Store
 coverage/
-test/temp
+test-repo/.git
