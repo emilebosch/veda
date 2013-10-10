@@ -6,11 +6,11 @@ Rake::TestTask.new do |t|
 	t.verbose = true
 end
 
-task :link do
-  `cd test/test-repo && ln -s .git-data .git`
+task :enable_test_repo do
+  `cd test/test-repo && ln -s .git-data .git` unless File.exist? "test/test-repo/.git"
 end
 
-task :unlink do
+task :disable_test_repo do
   `rm -f ./test/test-repo/.git`
 end
 

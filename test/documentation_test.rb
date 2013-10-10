@@ -1,16 +1,17 @@
 require './test/test_helper'
 
-describe "page" do
+describe "Veda::Documentation" do
+
   before do
-    @page = Veda::Documentation.new("./test/test-docs")
+    @page = Veda::Documentation.new("./test/test-repo")
   end
 
   it "should extract metadata from a single file" do
-    meta = @page.fetch "sample"
+    meta = @page.fetch "file1"
   end
 
   it "should not crash when no markdown" do
-    meta = @page.fetch "empty"
+    meta = @page.fetch "file1"
   end
 
   it "should extract metadata from a collection of files" do

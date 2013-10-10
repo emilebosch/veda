@@ -1,3 +1,5 @@
+require './test/test_helper'
+
 describe "ScmFile" do
 
   before do
@@ -12,9 +14,8 @@ describe "ScmFile" do
   end
 
   it "should show the status of a indexed file"
-  it "should show "
+  it "should show the branches where this file is modified from this starting commit"
 end
 
 describe "ScmRepo" do
-
 end
