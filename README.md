@@ -2,7 +2,55 @@
 
 Collaborate documentation and WIKI
 
-## Hacking
+## What is Veda?
+
+Veda is Git based documentation system, it aims to simplify writing documentation and text using
+the same methodologies as writing code. Everyone can fork and contribute documentation.
+
+## Getting Veda
+
+Installing is easy! Just type:
+
+```
+gem install veda
+```
+
+In case you use RBENV type ``rbenv rehash`` to make the ``veda`` command available.
+Then go in to a directory with markdown and type:
+
+```
+veda
+```
+
+to start the veda server. You can then browse to ``http://localhost:4567`` to read the
+documentation.
+
+## Installing Veda documentation
+
+Veda makes it easy to download and view documentation written on github.
+
+```
+veda install emilebosch/guides
+```
+
+It will clone the repo from github, install it in ``~/.veda/library/emilebosch/guides``.
+
+To view a list of locally installed documentation type:
+
+```
+veda list
+```
+
+## Mounting Veda in Rails apps
+
+You can mount Veda also in your rails app like any other rack app. This allows you
+to expose your documentation fast and easy.
+
+```
+mount Veda::Server.new("my-haikus", Rails.root) => "/haiku"
+```
+
+## Hacking on Veda
 
 Clone and cd this repo:
 
@@ -15,32 +63,3 @@ Use rake to run the tests:
 ```
 rake
 ```
-
-### Note on .GIT in in test-repo
-
-Because veda is build for viewing git repos its a bit of a jerk having .git in a git directory.
-Therefore before testing it symlinks ``.git-data`` to ``.git``.
-
-## Installing
-
-Installing is simple
-
-``gem install veda``
-
-## How to use vedas
-
-Using veda is simple! Just ``cd`` into a git directory and type ``veda`` to start.
-
-``veda``
-
-It will spawn a server where you can read your veda's locally.
-
-List all vedas in the library
-
-``veda library``
-
-Get a veda and install it in the library
-
-``veda pull emilebosch/kitesurfing``
-
-to view your veda

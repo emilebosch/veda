@@ -4,7 +4,7 @@ module Veda
   class ScmFile
 
     def initialize(repo, file)
-      @git = Git.open(repo)
+      @git = Git.open(repo || '.')
       @log = @git.log(20).object(file)
       @status = @git.status[file]
     end
