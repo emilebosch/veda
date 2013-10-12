@@ -12,7 +12,7 @@ module Veda
     def fetch(file)
       path = make_path("#{file}.md")
 
-      data = {}
+      data = { title: file }
       contents = File.read path
       match = contents.match /---(.*?)---(.*)/m
       if match
