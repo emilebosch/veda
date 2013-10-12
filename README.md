@@ -44,15 +44,33 @@ veda list
 ## Mounting Veda in Rails apps
 
 You can mount Veda also in your rails app like any other rack app. This allows you
-to expose your documentation fast and easy.
+to expose your documentation fast and easy. Just put this baby in your ``routes.rb``
 
 ```
 mount Veda::Server.new("my-haikus", Rails.root) => "/haiku"
 ```
 
+## Extending Veda
+
+You can extend veda by placing a ``Vedafile`` in a directory. This will be loaded runtime.
+
+You can then freedompatch Veda into awesomeness.
+
+### Providing your own views
+
+For instance, u can provide your own views, u can just patch the ``Veda::Server``.
+
+```
+class Veda::Server
+  set :root, File.dirname(__FILE__)
+end
+```
+
 ## Hacking on Veda
 
-Clone and cd this repo:
+Yes, please help out and make Veda awesome! I need your mad skills to take this further.
+
+Fork, clone and cd this repo:
 
 ```
 git@github.com:emilebosch/veda.git

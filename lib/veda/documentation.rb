@@ -22,6 +22,7 @@ module Veda
 
       pages = contents.split '<!-- break -->'
       scm_file = ScmFile.new @repo, path
+
       Hashie::Mash.new(data.merge!(pages: pages, scm_file: scm_file, contents: contents, id: File.basename(file, '.md')))
     end
 

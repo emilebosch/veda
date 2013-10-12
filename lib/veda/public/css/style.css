@@ -86,11 +86,13 @@ code {
 }
 
 .commits {
-  border:1px solid #efefef;
+  border-top:1px solid #efefef;
   margin:0px;
+  margin-top:20px;
   padding:0px;
   list-style:none;
   padding:20px;
+  padding-bottom:0px;
 }
 
 .commits li {
