@@ -76,8 +76,14 @@ Fork, clone and cd this repo:
 git@github.com:emilebosch/veda.git
 cd veda
 ```
-Use rake to run the tests:
+
+Now, because Veda, relies on git, there is a git repo in a git repo. (GITCEPTION! OMG!) Anyway,
+since, i haven't found an elegant way to do this yet (Please PR one!) You need
+to run ``rake unzip`` to unzip the test repo.
+
+So in short, to test:
 
 ```
+rake unzip
 rake
 ```

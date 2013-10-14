@@ -6,12 +6,12 @@ Rake::TestTask.new do |t|
 	t.verbose = true
 end
 
-task :zip_repo do
+task :zip do
   `cd test && rm -f test-repo.zip && zip -r test-repo.zip test-repo && rm -rf test-repo`
 end
 
-task :unzip_repo do
-  `cd test && unzip test-repo.zip && rm test-repo.zip`
+task :unzip do
+  `cd test && unzip test-repo.zip`
 end
 
 task :default => :test
