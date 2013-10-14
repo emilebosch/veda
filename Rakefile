@@ -7,7 +7,7 @@ Rake::TestTask.new do |t|
 end
 
 task :zip_repo do
-  `cd test && rm test-repo.zip && zip -r test-repo.zip test-repo && rm -rf test-repo`
+  `cd test && rm -f test-repo.zip && zip -r test-repo.zip test-repo && rm -rf test-repo`
 end
 
 task :unzip_repo do
