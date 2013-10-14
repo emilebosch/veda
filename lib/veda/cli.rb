@@ -28,12 +28,31 @@ module Veda
       end
     end
 
-    desc "update", "Update a locally installed veda"
+    desc "update [REPO]", "Update a locally installed veda"
     def update(repo)
       puts `cd #{library_path(repo)} && git pull`
     end
 
+    desc "powify [NAME]", "Installs veda under Pow (defaults to veda.dev)"
+    def powify(domain='veda', force=false)
+      abort("Hmm.. pow doesn't seem to be installed. Can't find the directory #{pow_dir}") unless File.exists? pow_dir
+
+      dir = File.join(pow_dir, domain)
+      abort("Link already exists") if File.exists? dir unless force
+
+      FileUtils.rm_f(dir) if force
+      FileUtils.ln_s(gem_dir, dir)
+    end
+
     private
+
+    def gem_dir
+      File.dirname(File.dirname(File.dirname(__FILE__)))
+    end
+
+    def pow_dir
+      File.join(Dir.home,".pow")
+    end
 
     def start_server
       Veda::Server.run!

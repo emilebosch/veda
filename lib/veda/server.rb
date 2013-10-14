@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/content_for'
+require "sinatra/reloader"
 require 'slim'
 require 'markdown'
 
@@ -22,9 +23,9 @@ module Veda
   end
 
 	class Server < Sinatra::Base
-
     helpers Sinatra::ContentFor
     helpers Veda::Helpers
+    register Sinatra::Reloader if development?
 
     def initialize(path=nil, repo=nil)
       @documentation = Veda::Documentation.new(path, repo)

@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = "Collaborative git based documentation"
   s.authors     = ["Emile Bosch"]
   s.email       = 'emilebosch@me.com'
-  s.files        = Dir.glob('{lib}/**/*') + %w(README.md)
+  s.files        = Dir.glob('{lib}/**/*') + %w(README.md config.ru)
   s.homepage    = 'https://github.com/emilebosch/veda'
   s.license     = 'MIT'
   s.executables << 'veda'
