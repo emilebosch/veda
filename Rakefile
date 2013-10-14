@@ -6,12 +6,12 @@ Rake::TestTask.new do |t|
 	t.verbose = true
 end
 
-task :enable_test_repo do
-  `cd test/test-repo && ln -s .git-data .git` unless File.exist? "test/test-repo/.git"
+task :zip_repo do
+  `cd test && rm test-repo.zip && zip -r test-repo.zip test-repo && rm -rf test-repo`
 end
 
-task :disable_test_repo do
-  `rm -f ./test/test-repo/.git`
+task :unzip_repo do
+  `cd test && unzip test-repo.zip && rm test-repo.zip`
 end
 
 task :default => :test
