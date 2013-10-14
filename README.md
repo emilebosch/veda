@@ -11,14 +11,14 @@ the same methodologies as writing code. Everyone can fork and contribute documen
 
 Installing is easy! Just type:
 
-```
+``` ruby
 gem install veda
 ```
 
 In case you use RBENV type ``rbenv rehash`` to make the ``veda`` command available.
 Then go in to a directory with markdown and type:
 
-```
+``` shell
 veda
 ```
 
@@ -46,7 +46,7 @@ veda list
 You can mount Veda also in your rails app like any other rack app. This allows you
 to expose your documentation fast and easy. Just put this baby in your ``routes.rb``
 
-```
+``` ruby
 mount Veda::Server.new("my-haikus", Rails.root) => "/haiku"
 ```
 
@@ -60,7 +60,7 @@ You can then freedompatch Veda into awesomeness.
 
 For instance, u can provide your own views, u can just patch the ``Veda::Server``.
 
-```
+``` ruby
 class Veda::Server
   set :root, File.dirname(__FILE__)
 end

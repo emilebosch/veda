@@ -12,12 +12,13 @@ Gem::Specification.new do |s|
   s.executables << 'veda'
 
   s.add_dependency 'sinatra'
-  s.add_dependency 'rdiscount'
   s.add_dependency 'thor'
   s.add_dependency 'slim'
   s.add_dependency 'hashie'
   s.add_dependency 'git'
   s.add_dependency 'sinatra-contrib'
+  s.add_dependency 'coderay'
+  s.add_dependency 'redcarpet'
 
   s.add_development_dependency 'rake'
   s.add_development_dependency 'simplecov'
