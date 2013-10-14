@@ -1,5 +1,4 @@
 require 'sinatra/base'
-require 'sinatra/content_for'
 require "sinatra/reloader"
 require 'slim'
 require 'coderay'
@@ -38,7 +37,6 @@ module Veda
   end
 
 	class Server < Sinatra::Base
-    helpers Sinatra::ContentFor
     helpers Veda::Helpers
     register Sinatra::Reloader if development?
 
@@ -57,7 +55,7 @@ module Veda
     end
 	end
 
-class Library < Sinatra::Base
+  class Library < Sinatra::Base
     register Sinatra::Reloader if development?
 
     def initialize(path=nil, repo=nil)
@@ -71,12 +69,15 @@ class Library < Sinatra::Base
     end
 
     get '/*' do
-      dir = 'emilebosch/rockstar-academy'
+      parts = env['PATH_INFO'].split('/').reject(&:empty?)
+      return unless parts.length >= 2
+
+      dir = "#{parts[0]}/#{parts[1]}"
 
       env['PATH_INFO'] = env['PATH_INFO'].gsub(dir,'')
       env['SCRIPT_NAME'] = dir
 
-      path = "/Users/emilebosch/.veda/library/emilebosch/rockstar-academy"
+      path = File.join(home, dir)
 
       Dir.chdir(path)
       Server.new.call(env)
@@ -85,8 +86,7 @@ class Library < Sinatra::Base
     private
 
     def home
-      "#{Dir.home}/.veda/Library/"
+      "#{Dir.home}/.veda/Library"
     end
-
   end
 end
