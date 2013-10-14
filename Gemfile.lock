@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    veda (0.0.0.0)
+    veda (0.0.0.1)
       git
       hashie
       rdiscount

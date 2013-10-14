@@ -33,6 +33,11 @@ module Veda
       puts `cd #{library_path(repo)} && git pull`
     end
 
+    desc "library", "Run in veda library mode"
+    def library
+      start_library
+    end
+
     desc "powify [NAME]", "Installs veda under Pow (defaults to veda.dev)"
     def powify(domain='veda', force=false)
       abort("Hmm.. pow doesn't seem to be installed. Can't find the directory #{pow_dir}") unless File.exists? pow_dir
@@ -52,6 +57,10 @@ module Veda
 
     def pow_dir
       File.join(Dir.home,".pow")
+    end
+
+    def start_library
+      Veda::Library.run!
     end
 
     def start_server
