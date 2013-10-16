@@ -1,0 +1,33 @@
+- @title = @page.title
+
+.nav
+  a(href=url('/')) Go to index
+
+h1=@page.title
+
+- if @page.scm_file.status.sha_repo=="0000000000000000000000000000000000000000"
+  .warn Heya, this file is staged but not commited! You can commit this via `git commit`
+
+- if @page.scm_file.status.untracked
+  .warn Heya, this file is untracked! You can add it to the git repository via `git add`
+
+- unless @page.scm_file.status.untracked
+  ul.authors
+    - for name, y in @page.scm_file.authors
+      li: img width=40 height=40 src=gravatar(y[0].email) title="#{name} (#{y[0].email})"
+
+  - unless @page.scm_file.log.length == 0
+    span Created by #{@page.scm_file.log.last.author} on #{date(@page.scm_file.log.last.date)}, latest edit #{@page.scm_file.log.first.date.strftime('%b %e, %Y')} by #{@page.scm_file.log.first.author}.
+
+    .last-commit #{@page.scm_file.log.first.comment} - #{date(@page.scm_file.log.first.date)}
+
+==markdown(@page.contents)
+
+- unless @page.scm_file.log.length == 0
+  ul.commits
+    - for log in @page.scm_file.log
+      li
+        .email: img src=gravatar(log.email)
+        .rev=log.rev
+        .date=date(log.date)
+        .comment=log.comment
