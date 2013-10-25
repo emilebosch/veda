@@ -2,19 +2,22 @@ require './test/test_helper'
 
 describe "Veda::Documentation" do
   before do
-    @page = Veda::Documentation.new("./test/test-repo")
+    @documentation = Veda::Documentation.new("./test/test-repo")
   end
 
   it "should extract metadata from a single file" do
-    meta = @page.fetch "file1"
+    meta = @documentation.fetch "file1"
+    assert_equal 'How to: LXC from scratch', meta['title']
   end
 
   it "should not crash when no yaml" do
-    meta = @page.fetch "empty"
+    meta = @documentation.fetch "empty"
+    assert_equal 'empty', meta['id']
   end
 
   it "should extract metadata from a collection of files" do
-    @page.collection
+    collection = @documentation.collection
+    assert_equal 4, collection.size
   end
 
   it "should use a slug as path if present"
