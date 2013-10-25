@@ -34,5 +34,9 @@ module Veda
       files = Dir.glob make_path("*.md")
       files.collect { |file| fetch(File.basename(file,'.md')) }
     end
+
+    def outline
+
+    end
   end
 end
