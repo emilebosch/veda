@@ -12,12 +12,21 @@ module Veda
     def fetch(file)
       path = make_path("#{file}.md")
 
-      data = { title: file }
+      data = {}
       contents = File.read path
       match = contents.match /---(.*?)---(.*)/m
       if match
         data = YAML::load(match[1])
         contents = match[2]
+      end
+
+      if data['title'].nil?
+        match = contents.match /^##* ?(.+)$/
+        if match
+          data['title'] = match[1]
+        else
+          data['title'] = file
+        end
       end
 
       pages = contents.split '<!-- break -->'
@@ -33,6 +42,10 @@ module Veda
     def collection
       files = Dir.glob make_path("*.md")
       files.collect { |file| fetch(File.basename(file,'.md')) }
+    end
+
+    def outline
+
     end
   end
 end

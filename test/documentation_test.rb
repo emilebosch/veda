@@ -10,6 +10,11 @@ describe "Veda::Documentation" do
     assert_equal 'How to: LXC from scratch', meta['title']
   end
 
+  it "should match first heading as title" do
+    meta = @documentation.fetch "without_meta"
+    assert_equal 'This is the title', meta['title']
+  end
+
   it "should not crash when no yaml" do
     meta = @documentation.fetch "empty"
     assert_equal 'empty', meta['id']
@@ -17,7 +22,7 @@ describe "Veda::Documentation" do
 
   it "should extract metadata from a collection of files" do
     collection = @documentation.collection
-    assert_equal 4, collection.size
+    assert_equal 5, collection.size
   end
 
   it "should use a slug as path if present"
