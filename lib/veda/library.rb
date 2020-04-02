@@ -3,7 +3,7 @@ module Veda
     register Sinatra::Reloader if development?
 
     get "/" do
-      @files = Dir.glob("#{home}/*/*").collect { |f| f.gsub home, "" }
+      @files = Dir.glob("#{home}/*").collect { |f| f.gsub home, "" }
       slim :library
     end
 

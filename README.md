@@ -11,64 +11,64 @@ the same methodologies as writing code. Everyone can fork and contribute documen
 
 Veda is still in prerelease. But you can get a sneak peek by running:
 
-``` ruby
+```bash
 gem install veda --pre
 ```
 
-In case you use RBENV type ``rbenv rehash`` to make the ``veda`` command available.
+In case you use RBENV type `rbenv rehash` to make the `veda` command available.
 Then go in to a directory with markdown and type:
 
-``` shell
+```bash
 veda
 ```
 
-to start the veda server. You can then browse to ``http://localhost:4567`` to read the
+to start the veda server. You can then browse to `http://localhost:4567` to read the
 documentation.
 
-## Powifying veda
+## Pow veda
 
 You can also add it easy to pow with:
 
-```shell
-veda powify
+```bash
+veda pow
 ```
 
 ## Installing Veda documentation
 
 Veda makes it easy to download and view documentation written on github.
 
-```
+```bash
 veda install emilebosch/guides
 ```
 
-It will clone the repo from github, install it in ``~/.veda/library/emilebosch/guides``.
+It will clone the repo from github, install it in `~/.veda/library/emilebosch/guides`.
 
 To view a list of locally installed documentation type:
 
-```
+```bash
 veda list
 ```
 
 ## Mounting Veda in Rails apps
 
 You can mount Veda also in your rails app like any other rack app. This allows you
-to expose your documentation fast and easy. Just put this baby in your ``routes.rb``
+to expose your documentation fast and easy. Just put this baby in your `routes.rb`
 
-``` ruby
+```ruby
 mount Veda::Server.new(Rails.root.join("./docs"), Rails.root) => "/docs"
 ```
 
 ## Extending Veda
 
-You can extend veda by placing a ``Vedafile`` in a directory. This will be loaded runtime.
+You can extend veda by placing a `Vedafile` in a directory. This will be loaded runtime.
 
 You can then freedompatch Veda into awesomeness.
 
 ### Providing your own views
 
-For instance, u can provide your own views, u can just patch the ``Veda::Server``.
+For instance, u can provide your own views, u can just patch the `Veda::Server`.
 
-``` ruby
+```ruby
 class Veda::Server
   set :root, File.dirname(__FILE__)
 end
@@ -80,17 +80,17 @@ Yes, please help out and make Veda awesome! I need your mad skills to take this 
 
 Now, because Veda, relies on git, there is a git repo in a git repo. (GITCEPTION! OMG!) Anyway,
 since, i haven't found an elegant way to do this yet (Please PR one!) You need
-to run ``rake unzip`` to unzip the test repo.
+to run `rake unzip` to unzip the test repo.
 
 So in short, to test:
 
-```shell
+```bash
 bundle rake unzip
 bundle rake
 ```
 
 To run locally:
 
-```shell
+```bash
 bundle exec veda
 ```

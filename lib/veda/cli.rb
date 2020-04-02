@@ -1,6 +1,9 @@
 module Veda
   class Cli < Thor
     default_task :start
+    def self.exit_on_failure?
+      true
+    end
 
     desc "start", "Start the veda webserver"
 
@@ -24,9 +27,8 @@ module Veda
 
     def list
       puts "Installed vedas in #{library_path}"
-      for path in Dir.glob "#{library_path}*/*"
-        base, name = path.split(library_path)
-        puts "- #{name}"
+      Dir["#{library_path}/*"].each do |x|
+        p File.basename x
       end
     end
 
@@ -34,6 +36,16 @@ module Veda
 
     def version
       puts Veda::VERSION
+    end
+
+    desc "link", "Link a repo to library"
+
+    def link(name = nil, force = false)
+      name = File.basename Dir.pwd unless name
+      lib_path = library_path(name)
+
+      FileUtils.rm_f(lib_path) if force
+      FileUtils.ln_s(Dir.pwd, lib_path)
     end
 
     desc "update [REPO]", "Update a locally installed veda"
@@ -48,9 +60,9 @@ module Veda
       start_library
     end
 
-    desc "powify [NAME]", "Installs veda under Pow (defaults to veda.test)"
+    desc "pow [NAME]", "Installs veda under Pow (defaults to veda.test)"
 
-    def powify(domain = "veda", force = false)
+    def pow(domain = "veda", force = false)
       abort("Hmm.. pow doesn't seem to be installed. Can't find the directory #{pow_dir}") unless File.exists? pow_dir
 
       dir = File.join(pow_dir, domain)

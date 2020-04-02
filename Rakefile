@@ -18,14 +18,14 @@ end
 task :uninstall do
   puts "Unintalling.."
   `gem uninstall veda -ax`
-  `rbenv rehash`
+  `which rbenv && rbenv rehash`
 end
 
 task :install => :uninstall do
-  `rm *.gem`
+  `rm -f *.gem`
   `gem build veda.gemspec`
   `gem install --local veda-#{Veda::VERSION}.gem`
-  `rbenv rehash`
+  `which rbenv && rbenv rehash`
 end
 
 task :default => :test
