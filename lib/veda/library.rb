@@ -25,7 +25,7 @@ module Veda
     private
 
     def home
-      "#{Dir.home}/.veda/Library"
+      "#{Dir.home}/.veda/library"
     end
   end
 end

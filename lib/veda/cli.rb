@@ -48,7 +48,7 @@ module Veda
       start_library
     end
 
-    desc "powify [NAME]", "Installs veda under Pow (defaults to veda.dev)"
+    desc "powify [NAME]", "Installs veda under Pow (defaults to veda.test)"
 
     def powify(domain = "veda", force = false)
       abort("Hmm.. pow doesn't seem to be installed. Can't find the directory #{pow_dir}") unless File.exists? pow_dir

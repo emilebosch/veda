@@ -25,6 +25,14 @@ veda
 to start the veda server. You can then browse to ``http://localhost:4567`` to read the
 documentation.
 
+## Powifying veda
+
+You can also add it easy to pow with:
+
+```shell
+veda powify
+```
+
 ## Installing Veda documentation
 
 Veda makes it easy to download and view documentation written on github.
@@ -47,7 +55,7 @@ You can mount Veda also in your rails app like any other rack app. This allows y
 to expose your documentation fast and easy. Just put this baby in your ``routes.rb``
 
 ``` ruby
-mount Veda::Server.new("my-haikus", Rails.root) => "/haiku"
+mount Veda::Server.new(Rails.root.join("./docs"), Rails.root) => "/docs"
 ```
 
 ## Extending Veda
@@ -76,7 +84,13 @@ to run ``rake unzip`` to unzip the test repo.
 
 So in short, to test:
 
-```
+```shell
 bundle rake unzip
 bundle rake
+```
+
+To run locally:
+
+```shell
+bundle exec veda
 ```
