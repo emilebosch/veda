@@ -1,6 +1,6 @@
-require './test/test_helper'
+require "./test/test_helper"
 
 describe "server" do
-	before do
-	end
+  before do
+  end
 end

@@ -70,13 +70,6 @@ end
 
 Yes, please help out and make Veda awesome! I need your mad skills to take this further.
 
-Fork, clone and cd this repo:
-
-```
-git@github.com:emilebosch/veda.git
-cd veda
-```
-
 Now, because Veda, relies on git, there is a git repo in a git repo. (GITCEPTION! OMG!) Anyway,
 since, i haven't found an elegant way to do this yet (Please PR one!) You need
 to run ``rake unzip`` to unzip the test repo.
@@ -84,6 +77,6 @@ to run ``rake unzip`` to unzip the test repo.
 So in short, to test:
 
 ```
-rake unzip
-rake
+bundle rake unzip
+bundle rake
 ```

@@ -1,4 +1,4 @@
-require './test/test_helper'
+require "./test/test_helper"
 
 describe "Veda::Documentation" do
   before do
@@ -7,12 +7,12 @@ describe "Veda::Documentation" do
 
   it "should extract metadata from a single file" do
     meta = @documentation.fetch "file1"
-    assert_equal 'How to: LXC from scratch', meta['title']
+    assert_equal "How to: LXC from scratch", meta["title"]
   end
 
   it "should not crash when no yaml" do
     meta = @documentation.fetch "empty"
-    assert_equal 'empty', meta['id']
+    assert_equal "empty", meta["id"]
   end
 
   it "should extract metadata from a collection of files" do

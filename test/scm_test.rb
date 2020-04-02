@@ -1,7 +1,6 @@
-require './test/test_helper'
+require "./test/test_helper"
 
 describe "ScmFile" do
-
   before do
     @file = Veda::ScmFile.new "./test/test-repo", "file1.md"
   end

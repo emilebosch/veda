@@ -1,7 +1,19 @@
-require 'veda/version'
-require 'veda/server'
-require 'veda/cli'
-require 'veda/documentation'
-require 'veda/scm'
+require "thor"
+require "sinatra/base"
+require "sinatra/reloader"
+require "slim"
+require "hashie"
+require "redcarpet"
+require "coderay"
+require "redcarpet"
+require "git"
+require "veda/cli"
+require "veda/documentation"
+require "veda/helpers"
+require "veda/library"
+require "veda/markdown_renderer"
+require "veda/scm_file"
+require "veda/version"
+require "veda/server"
 
 eval(File.read "Vedafile") if File.exists? "Vedafile"

@@ -1,10 +1,10 @@
-require 'rake/testtask'
-require './lib/veda/version'
+require "rake/testtask"
+require "./lib/veda/version"
 
 Rake::TestTask.new do |t|
-	t.libs << "lib/veda.rb"
-	t.test_files = FileList['test/*_test.rb']
-	t.verbose = true
+  t.libs << "lib/veda.rb"
+  t.test_files = FileList["test/*_test.rb"]
+  t.verbose = true
 end
 
 task :zip do
@@ -16,12 +16,12 @@ task :unzip do
 end
 
 task :uninstall do
-  puts 'Unintalling..'
+  puts "Unintalling.."
   `gem uninstall veda -ax`
   `rbenv rehash`
 end
 
-task :install => :uninstall  do
+task :install => :uninstall do
   `rm *.gem`
   `gem build veda.gemspec`
   `gem install --local veda-#{Veda::VERSION}.gem`
